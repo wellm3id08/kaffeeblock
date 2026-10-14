@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KaffeeBlock</title>
+  <meta name="description" content="Learn Java by snapping blocks together. Run it in the browser, export real Java code.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9h11v4.5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M15.5 10.5h1.25a2.25 2.25 0 0 1 0 4.5H15.2"/><path d="M8 3.5c-.6.8-.6 1.7 0 2.5M11.5 3.5c-.6.8-.6 1.7 0 2.5"/></svg>
+      <span>KaffeeBlock</span>
+    </div>
+    <div class="actions">
+      <select id="examples" class="select"></select>
+      <button id="open" class="icon-btn" data-i18n-title="open">
+        <svg viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h3.6l2 2h7.4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg>
+      </button>
+      <button id="save" class="icon-btn" data-i18n-title="save">
+        <svg viewBox="0 0 24 24"><path d="M12 4.5v10m0 0-4-4m4 4 4-4M5 19.5h14"/></svg>
+      </button>
+      <div class="seg" role="group" aria-label="Language">
+        <button data-lang="en">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+      <button id="run" class="btn primary">
+        <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+        <svg class="i-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/></svg>
+        <span data-i18n="run">Run</span>
+      </button>
+    </div>
+    <input id="file" type="file" accept=".kblock,.json" hidden>
+  </header>
+
+  <main class="layout">
+    <section id="workspace" class="card"></section>
+    <aside class="side">
+      <section class="card panel">
+        <div class="panel-head">
+          <span id="filename" class="mono">Main.java</span>
+          <button id="problems" class="badge" hidden></button>
+          <div class="tools">
+            <button id="copy" class="icon-btn" data-i18n-title="copy">
+              <svg class="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 5.5a2 2 0 0 0-2-1.5H6a2 2 0 0 0-2 2v7a2 2 0 0 0 1.5 2"/></svg>
+              <svg class="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4 4 9-9"/></svg>
+            </button>
+            <button id="export" class="btn ghost">
+              <svg viewBox="0 0 24 24"><path d="M12 4.5v10m0 0-4-4m4 4 4-4M5 19.5h14"/></svg>
+              <span data-i18n="exportJava">Export .java</span>
+            </button>
+          </div>
+        </div>
+        <pre id="code" class="code"><code></code></pre>
+      </section>
+      <section class="card panel">
+        <div class="panel-head">
+          <span data-i18n="console">Console</span>
+          <div class="tools">
+            <button id="clear" class="icon-btn" data-i18n-title="clear">
+              <svg viewBox="0 0 24 24"><path d="M5 7.5h14M10 11v5.5M14 11v5.5M6.5 7.5l.8 10.6a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9l.8-10.6M9.5 7.5V5h5v2.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="console" class="console">
+          <pre id="term"></pre>
+          <form id="ask" hidden><input id="answer" autocomplete="off" spellcheck="false"></form>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="vendor/blockly/blockly_compressed.js"></script>
+  <script src="vendor/blockly/blocks_compressed.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/blocks.js"></script>
+  <script src="js/compiler.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/examples.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
