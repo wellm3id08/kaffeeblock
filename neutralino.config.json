@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
+  "applicationId": "io.github.kaffeeblock",
+  "version": "1.0.0",
+  "author": "KaffeeBlock contributors",
+  "description": "Learn Java by snapping blocks together",
+  "defaultMode": "window",
+  "port": 0,
+  "documentRoot": "/app/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "tokenSecurity": "one-time",
+  "logging": {
+    "enabled": false,
+    "writeToLogFile": false
+  },
+  "nativeAllowList": [
+    "os.showSaveDialog",
+    "filesystem.writeFile"
+  ],
+  "modes": {
+    "window": {
+      "title": "KaffeeBlock",
+      "width": 1280,
+      "height": 800,
+      "minWidth": 720,
+      "minHeight": 480,
+      "center": true,
+      "icon": "/app/icon.png",
+      "enableInspector": false,
+      "exitProcessOnClose": true,
+      "injectGlobals": true
+    }
+  },
+  "cli": {
+    "binaryName": "kaffeeblock",
+    "resourcesPath": "/app/",
+    "extensionsPath": "/extensions/",
+    "binaryVersion": "6.10.0"
+  }
+}
