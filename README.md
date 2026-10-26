@@ -99,3 +99,7 @@ The preview does not run Java in the browser. The compiler produces two programs
 ## Credits
 
 Built on [Blockly](https://developers.google.com/blockly) (Apache 2.0) and [Neutralinojs](https://neutralino.js.org) (MIT). See `app/vendor/NOTICE.md`.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Blockly and Neutralinojs keep their own licenses, listed in `app/vendor/NOTICE.md`.
