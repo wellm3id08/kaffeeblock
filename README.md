@@ -1,6 +1,13 @@
 # KaffeeBlock
 
+[![Live demo](https://img.shields.io/badge/demo-live-2ea44f)](https://wellm3id08.github.io/kaffeeblock/)
+[![Pages](https://img.shields.io/github/actions/workflow/status/wellm3id08/kaffeeblock/pages.yml?branch=main&label=pages)](https://github.com/wellm3id08/kaffeeblock/actions/workflows/pages.yml)
+[![Release](https://img.shields.io/github/v/release/wellm3id08/kaffeeblock)](https://github.com/wellm3id08/kaffeeblock/releases/latest)
+[![License: MIT](https://img.shields.io/github/license/wellm3id08/kaffeeblock)](LICENSE)
+
 Learn Java by snapping blocks together.
+
+![KaffeeBlock running FizzBuzz: blocks on the left, the generated Java and the console output on the right](docs/screenshot.png)
 
 KaffeeBlock is for people who have never written a line of code, or who tried once and bounced off a wall of semicolons. You build a program out of colored blocks, press **Run**, and watch it work. Next to your blocks, the matching Java code writes itself, line by line. When you are ready, one click saves it as a real `.java` file that compiles and runs anywhere Java does.
 
@@ -99,3 +106,7 @@ The preview does not run Java in the browser. The compiler produces two programs
 ## Credits
 
 Built on [Blockly](https://developers.google.com/blockly) (Apache 2.0) and [Neutralinojs](https://neutralino.js.org) (MIT). See `app/vendor/NOTICE.md`.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Blockly and Neutralinojs keep their own licenses, listed in `app/vendor/NOTICE.md`.

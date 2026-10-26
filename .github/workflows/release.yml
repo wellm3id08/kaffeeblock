@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  desktop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build desktop bundles
+        run: |
+          npx -y @neutralinojs/neu@11 update
+          npx -y @neutralinojs/neu@11 build --release
+
+      - name: Package Windows and Linux
+        run: |
+          mkdir -p out
+          cd dist/kaffeeblock
+          zip -9 ../../out/kaffeeblock-windows-x64.zip kaffeeblock-win_x64.exe resources.neu
+          zip -9 ../../out/kaffeeblock-linux-x64.zip kaffeeblock-linux_x64 resources.neu
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaffeeblock-desktop
+          path: out/*
+
+      - if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: out/*
+          generate_release_notes: true
